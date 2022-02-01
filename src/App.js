@@ -1,30 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import FormularioCadastro from "./components/FormularioCadastro/FormularioCadastro";
-import{Container, Typography} from "@material-ui/core"
-import '@fontsource/roboto/500.css';
-
+import { Container, Typography } from "@material-ui/core";
+import "@fontsource/roboto/500.css";
+import { validarCpf, validarSenha, validarNome } from "./models/cadastro";
+import ValidacoesCadastro from "./contexts/ValidacoesCadastro";
 
 function App() {
   return (
     <Container component="article" maxWidth="sm">
-      <Typography variant="h3" component="h1" align="center">Formulário de Cadastro</Typography>
-      <FormularioCadastro aoEnviar={aoEnviarForm} validarCpf={validarCpf} />
+      <Typography variant="h3" component="h1" align="center">
+        Formulário de Cadastro
+      </Typography>
+      <ValidacoesCadastro.Provider
+        value={{ cpf: validarCpf, senha: validarSenha, nome: validarNome }}
+      >
+      <FormularioCadastro aoEnviar={aoEnviarForm} />
+      </ValidacoesCadastro.Provider>
     </Container>
   );
 
-  function aoEnviarForm(dados){
+  function aoEnviarForm(dados) {
     console.log(dados);
   }
-
-  function validarCpf(cpf){
-    if(cpf.length !== 11){
-      return {valido:false, texto:"CPF deve ter 11 dígitos"}
-    }else{
-      return {valido:true, texto:""}
-    }
-  }
 }
-
 
 export default App;
