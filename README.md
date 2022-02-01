@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Projeto de estudo - React
+
+Esse projeto foi feito com o objetivo de por em prática a biblioteca react.js. Depois de usar a documentação como base para o conhecimento da biblioteca, fiz esse formulário de cadastro. Também usei o materail-ui para estilizar os componentes. 
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
